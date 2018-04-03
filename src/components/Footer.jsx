@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import './Navbar.css';
+import './Footer.css';
 import {
   Collapse,
   Navbar,
@@ -28,7 +28,7 @@ export default class Example extends Component {
   render() {
     return (
       <div>
-        <Navbar color="faded" fixed="top" light expand="md">
+        <Navbar className="footer" fixed="bottom" color="faded" light expand="md">
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
