@@ -1,7 +1,9 @@
 // @flow
 
 import React, { Component } from 'react';
+import { withRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import './Navbar.css';
+import { LinkContainer } from 'react-router-bootstrap';
 import {
   Collapse,
   Navbar,
@@ -28,12 +30,14 @@ export default class Example extends Component {
   render() {
     return (
       <div>
-        <Navbar color="faded" fixed="top" light expand="md">
+        <Navbar className="top-nav" color="faded" fixed="top" light expand="md">
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink href="#">Projects</NavLink>
+                <LinkContainer to="/foo/bar">
+                  <NavLink href="#">Projects</NavLink>
+                </LinkContainer>
               </NavItem>
               <NavItem>
                 <NavLink href="#">Gaming</NavLink>

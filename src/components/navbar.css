@@ -1,0 +1,5 @@
+.top-nav {
+  background: white;
+  border: 1px solid pink;
+  z-index: 9999;
+}

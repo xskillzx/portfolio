@@ -9,19 +9,13 @@ import Footer from './components/Footer.jsx';
 const App = () => (
   <Router>
     <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/topics">Topics</Link>
-        </li>
-      </ul>
-
-      <hr />
+      <div className="App">
+        <Navbar />
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <Footer />
+      </div>
 
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
@@ -74,64 +68,42 @@ const Topic = ({ match }) => (
 
 export default App;
 
+/*      <div>
+        <div id="topnav">
+          <Link to="/search" className="logoLink">
+            <img className="logo"src="https://image.ibb.co/cRbaE6/imageedit_16_4158574454.png"/>
+            YALP!
+          </Link>
+          {this.hasLoggedUser() ?
+            <span>
+              <Link to="/" className="logout"><span onClick={this.logoutUser.bind(this)}>Log Out</span></Link>
+              <Link to="/profile" className="profile"><span>Profile</span></Link>
+            </span> :
+              this.props.location.pathname !== '/' && this.props.location.pathname !== '/login' && this.props.location.pathname !== '/signup' ? 
+                <Link to="/" className="profile"><span>Log In</span></Link> : null
+          }
+        </div>
+        <Switch>
+          <Route exact path="/" render={() => (!this.hasLoggedUser() ?
+            <div id="form-background"><div id="form"><Home /></div></div> :
+            <Redirect to="/search"/>
+          )}/>
+          <Route path="/search" render={() => <div id="form-background"><div id="form"><Search goToListings={this.pushToListings.bind(this)}/></div></div>}/>
+          <Route path="/login" render={(props) => (!this.hasLoggedUser() ?
+            <div id="form-background"><div id="form"><Login history={props.history} loginUser={this.loginUser.bind(this)}/></div></div> :
+            <Redirect to="/search"/>
+          )}/>
+          <Route path="/signup" render={(props) => (!this.hasLoggedUser() ?
+            <div id="form-background"><div id="form"><Signup history={props.history} createUser={this.createUser.bind(this)}/></div></div> :
+            <Redirect to="/search"/>
+          )}/>
+          <Route path="/listings" render={(props) => <div id="listings"><BusinessList location={props.location}/></div>}/>
+          <Route path="/business/:id" render={(props) => <BusinessPage history={props.history} businessPlaceId={props.match.params.id}/>}/>
+          <Route path="/profile" render={() => (this.hasLoggedUser() ?
+            <div><Profile profileId={this.state.userId} /></div> :
+            <Redirect to="/"/>
+          )}/>
+        </Switch>*/
+
 // import React, { Component } from 'react';
 
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <div className="App-header">
-//           <Navbar />
-//         </div>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <p>.</p>
-//         <div className="App-footer">
-//           <Footer />
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;

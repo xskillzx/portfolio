@@ -1,3 +1,5 @@
-.footer {
-  fixed: bottom;
+.bottom-nav {
+  background: white;
+  border: 1px solid pink;
+  z-index: 9999;
 }

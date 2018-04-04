@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import './Footer.css';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope'
 import {
   Collapse,
   Navbar,
@@ -28,25 +30,13 @@ export default class Example extends Component {
   render() {
     return (
       <div>
-        <Navbar className="footer" fixed="bottom" color="faded" light expand="md">
+        <Navbar className="bottom-nav" fixed="bottom" color="faded" light expand="md">
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav navbar>
+            <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="#">Projects</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">Gaming</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">About</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">Contact</NavLink>
+                <NavLink href="#"><FontAwesomeIcon icon={faEnvelope} /></NavLink>
               </NavItem>
             </Nav>
-          </Collapse>
-          <NavbarBrand href="/">Moisés Muñoz</NavbarBrand>
         </Navbar>
       </div>
     );
