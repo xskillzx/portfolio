@@ -1,72 +1,106 @@
 // @flow
-
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route, withRouter } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import Projects from './components/Projects.jsx';
+import Gaming from './components/Gaming.jsx';
+import About from './components/About.jsx';
+import Contact from './components/Contact.jsx';
 
-const App = () => (
-  <Router>
-    <div>
-      <div className="App">
-        <Navbar />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Footer />
-      </div>
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/topics" component={Topics} />
-    </div>
-  </Router>
-);
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <Navbar />
+          <Footer />
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
+          <Switch>
+            <Route
+              exact path="/"
+              render={props => (<Projects projects={myProjects} />)}
+            />
+            <Route
+              exact path="/gaming"
+              render={props => (<Gaming projects={myProjects} />)}
+            />
+            <Route
+              exact path="/about"
+              render={props => (<About projects={myProjects} />)}
+            />
+            <Route
+              exact path="/contact"
+              render={props => (<Contact projects={myProjects} />)}
+            />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
 
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-);
+let myProjects = [
+  ["Yalp", "../../public/assets/images/yalp1.png", ["Yalp is the lovechild of Yelp and Meetup. Users have the opportunity to find a place they'd like to visit then create an event for others to join! No need to hassle with event and location details.", "Tech stack: MySQL, Axios, React, Node"]],
+  ["Squeaker", "../../public/assets/images/squeaker1.png", ["Squeaker is a light-hearted reimplementation of Twitter.", "Tech stack: MySQL, Express, React, Node"]]
+];
 
-const Topics = ({ match }) => (
-  <div>
-    <h2>Topics</h2>
-    <ul>
-      <li>
-        <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/components`}>Components</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-      </li>
-    </ul>
+  // render() {
+  //   return (
+  //     <div id="reactapp">
+  //       <NavBar
+  //         fixedTop="true"
+  //         className="squeaker-nav"
+  //         shouldReplace={this.props.location.pathname === '/'}
+  //         inputValue={this.state.inputValue}
+  //         searchHandler={this.searchHandler.bind(this)}
+  //         onChangeHandler={this.onInputChangeHandler.bind(this)}
+  //         userpic={this.state.userinfo[0].profile_img_url}
+  //       />
+  //       <Switch>
+  //         <Route exact path="/" render={props => (<HomePage counts={this.state.counts} userinfo={this.state.userinfo} />)}/>
+  //         <Route path="/search" render={props => (<SearchPage userinfo={this.state.userinfo} counts={this.state.counts} {...props.location}/>)}/>
+  //         <Route path="/login" render={props => (<span>Login Page</span>)}/>
+  //         <Route path="/:username" render={props => (<UserPage username={props.match.params.username}/>)}/>
+  //       </Switch>
+  //     </div>
+  //   );
+  // }
+// const Topics = ({ match }) => (
+//   <div>
+//     <h2>Topics</h2>
+//     <ul>
+//       <li>
+//         <Link to={`${match.url}/rendering`}>Rendering with React</Link>
+//       </li>
+//       <li>
+//         <Link to={`${match.url}/components`}>Components</Link>
+//       </li>
+//       <li>
+//         <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+//       </li>
+//     </ul>
 
-    <Route path={`${match.url}/:topicId`} component={Topic} />
-    <Route
-      exact
-      path={match.url}
-      render={() => <h3>Please select a topic.</h3>}
-    />
-  </div>
-);
+//     <Route path={`${match.url}/:topicId`} component={Topic} />
+//     <Route
+//       exact
+//       path={match.url}
+//       render={() => <h3>Please select a topic.</h3>}
+//     />
+//   </div>
+// );
 
-const Topic = ({ match }) => (
-  <div>
-    <h3>{match.params.topicId}</h3>
-  </div>
-);
-
-export default App;
+// const Topic = ({ match }) => (
+//   <div>
+//     <h3>{match.params.topicId}</h3>
+//   </div>
+// );
 
 /*      <div>
         <div id="topnav">

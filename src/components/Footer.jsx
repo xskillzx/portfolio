@@ -13,7 +13,7 @@ import {
   NavItem,
   NavLink } from 'reactstrap';
 
-export default class Example extends Component {
+export default class BottomNav extends Component {
   constructor(props) {
     super(props);
 

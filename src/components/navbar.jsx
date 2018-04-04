@@ -13,7 +13,7 @@ import {
   NavItem,
   NavLink } from 'reactstrap';
 
-export default class Example extends Component {
+export default class TopNav extends Component {
   constructor(props) {
     super(props);
 
@@ -35,18 +35,24 @@ export default class Example extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem>
-                <LinkContainer to="/foo/bar">
+                <LinkContainer to="/">
                   <NavLink href="#">Projects</NavLink>
                 </LinkContainer>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Gaming</NavLink>
+                <LinkContainer to="/gaming">
+                  <NavLink href="#">Gaming</NavLink>
+                </LinkContainer>
               </NavItem>
               <NavItem>
-                <NavLink href="#">About</NavLink>
+                <LinkContainer to="/about">
+                  <NavLink href="#">About</NavLink>
+                </LinkContainer>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Contact</NavLink>
+                <LinkContainer to="/contact">
+                  <NavLink href="#">Contact</NavLink>
+                </LinkContainer>
               </NavItem>
             </Nav>
           </Collapse>
